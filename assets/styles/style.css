@@ -18,6 +18,7 @@ h1{
     color: #d90268;
 }
 main{
+    min-height: 70vh;
     background-color: rgb(243, 229, 223);
     padding: 1rem;
 }
@@ -29,6 +30,7 @@ main{
 }
 .cardsContainer{
     padding: 1rem;
+    padding-top: 3rem;
 }
 .card{
     padding: 0%;
@@ -56,6 +58,9 @@ main{
 }
 .card-link:hover{
     color: rgb(61, 61, 61);
+}
+.formContainer{
+    padding-top: 2rem;
 }
 .formContact{
     padding: 4rem 0;
@@ -96,7 +101,7 @@ main{
     margin: 3rem 0;
 }
 .sectionDetail{
-    padding: 1rem;
+    padding: 2rem;
     background-color: #d902660c;
 }
 .imgDetail{

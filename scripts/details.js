@@ -14,12 +14,12 @@ const detailContainer = document.getElementById("detailCard");
 
 detailContainer.innerHTML = 
 `<img class="imgDetail col-12 col-md-6 col-xl-4" src="${idEvent.image}" alt="image ${idEvent.name}">
-<section class="sectionDetail col-md-6 col-xl-4">
+<section class="sectionDetail col-md-6 col-xl-4 d-flex flex-column justify-content-center">
     <div class="text-center">
         <h2>${idEvent.name}</h2>
         <h6>${idEvent.description}</h6>
     </div>
-    <ul>
+    <ul">
         <li><span class="fw-semibold text-decoration-underline">Date:</span> ${idEvent.date}</li>
         <li><span class="fw-semibold text-decoration-underline">Category:</span> ${idEvent.category}</li>
         <li><span class="fw-semibold text-decoration-underline">Place:</span> ${idEvent.place}</li>
