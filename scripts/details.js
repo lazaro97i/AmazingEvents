@@ -1,19 +1,18 @@
 
-const amzEvents = data.events;
-const queryStrign = location.search
-const params = new URLSearchParams(queryStrign);
-const id = params.get("id");
+fetch("https://amazing-events.onrender.com/api/events")
+    .then(res => res.json())
+    .then(data => {
+        const amzEvents = data.events;
+        const queryStrign = location.search
+        const params = new URLSearchParams(queryStrign);
+        const id = params.get("id");
 
-console.log([id]);
+        const idEvent = amzEvents.find(aEvent => aEvent._id == id);
 
-const idEvent = amzEvents.find( aEvent => aEvent._id == id );
+        const detailContainer = document.getElementById("detailCard");
 
-console.log(idEvent);
-
-const detailContainer = document.getElementById("detailCard");
-
-detailContainer.innerHTML = 
-`<img class="imgDetail col-12 col-md-6 col-xl-4" src="${idEvent.image}" alt="image ${idEvent.name}">
+        detailContainer.innerHTML =
+            `<img class="imgDetail col-12 col-md-6 col-xl-4" src="${idEvent.image}" alt="image ${idEvent.name}">
 <section class="sectionDetail col-md-6 col-xl-4 d-flex flex-column justify-content-center">
     <div class="text-center">
         <h2>${idEvent.name}</h2>
@@ -28,3 +27,5 @@ detailContainer.innerHTML =
         <li><span class="fw-semibold priceH6">Price: $ ${idEvent.price}</span></li>
     </ul>
 </section>`
+    })
+    .catch(err => console.log(err))

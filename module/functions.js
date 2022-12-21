@@ -1,7 +1,7 @@
 
 export function filterAll(dataList, searchValue){
     let filterCardsByCategory = filterByCategory(dataList);
-    let filterCardsBySearch = filterBySearch(filterCardsByCategory, searchValue.map(inp => inp.value));
+    let filterCardsBySearch = filterBySearch(filterCardsByCategory, searchValue);
     return filterCardsBySearch;
 }
 
@@ -37,18 +37,16 @@ export function createCards(dataList, contain) {
 
 export function filterByCategory(dataList){
     let inpChecked = Array.from(document.querySelectorAll("input[type='checkbox']:checked")).map( inp => inp.value);
-    let filterData = inpChecked.map( inpValue => dataList.filter( dataElement => dataElement.category === inpValue)).flat();
     if(!inpChecked.length){
         return dataList;
     }else{
-        return filterData;
+        return dataList.filter( dataElement => inpChecked.includes(dataElement.category));
     }
-    
 }
 
 export function filterBySearch(dataList, valueSearch){
     let aux ="";
-    aux = dataList.filter( element => element.name.toLowerCase().includes(valueSearch));
+    aux = dataList.filter( element => element.name.toLowerCase().includes(valueSearch.toLowerCase()));
     if(!aux.length){
         return false;
     }else{
